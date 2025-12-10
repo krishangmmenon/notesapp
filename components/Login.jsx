@@ -113,7 +113,7 @@ export default function Login() {
         </div>
         <div className="full-line"></div>
         <footer>
-          <a target="_blank" href="https://github.com/krishangmmenon/MyNotes">
+          <a target="_blank" href="https://github.com/krishangmmenon/notesapp">
             <img
               alt="pfp"
               src="https://avatars.githubusercontent.com/u/120028307?v=4"

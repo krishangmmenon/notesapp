@@ -147,9 +147,7 @@ footer a img {
   flex-direction: column;
   display: flex;
   gap: 1rem;
-  padding-bottom: 2rem;
   height: 100vh;
-  height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;

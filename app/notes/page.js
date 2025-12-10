@@ -97,8 +97,7 @@ export default function Notes() {
       }
       try {
         setIsLoading(true);
-        const cleanedId = value.trim();
-        const noteRef = doc(db, "users", currentUser.uid, "notes", cleanedId);
+        const noteRef = doc(db, "users", currentUser.uid, "notes", value);
         const snapshot = await getDoc(noteRef);
         const docData = snapshot.exists()
           ? { id: snapshot.id, ...snapshot.data() }

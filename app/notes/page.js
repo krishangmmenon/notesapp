@@ -97,7 +97,8 @@ export default function Notes() {
       }
       try {
         setIsLoading(true);
-        const noteRef = doc(db, "users", currentUser.uid, "notes", value);
+        const cleanedId = value.trim();
+        const noteRef = doc(db, "users", currentUser.uid, "notes", cleanedId);
         const snapshot = await getDoc(noteRef);
         const docData = snapshot.exists()
           ? { id: snapshot.id, ...snapshot.data() }
@@ -105,7 +106,7 @@ export default function Notes() {
         if (docData) {
           setNote(docData);
           setText(docData.content);
-          isViewer(true);
+          setIsViewer(true);
         }
       } catch (err) {
         console.log(err.message);

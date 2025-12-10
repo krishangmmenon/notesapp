@@ -103,7 +103,9 @@ export default function Notes() {
           ? { id: snapshot.id, ...snapshot.data() }
           : null;
         if (docData) {
-          setNote({ ...docData });
+          setNote(docData);
+          setText(docData.content);
+          isViewer(true);
         }
       } catch (err) {
         console.log(err.message);

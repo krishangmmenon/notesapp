@@ -112,7 +112,7 @@ export default function Notes() {
       }
     }
     fetchNotes();
-  }, [currentUser, searchParams]);
+  }, [currentUser, searchParams.get("id")]);
 
   if (isLoadingUser) {
     return <h6 className="text-gradient">Loading..</h6>;

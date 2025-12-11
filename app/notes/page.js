@@ -67,8 +67,12 @@ export default function Notes() {
       } else {
         // that means that its a brand new note and will only contain the content field,
         // so we can basically save a new note to firebase
-        const newId =
-          note.content.replaceAll("#", "").slice(0, 15) + "__" + Date.now();
+        const cleanedTitle = note.content
+          .replace(/[^a-zA-Z0-9 ]/g, "") // remove weird characters
+          .replace(/\s+/g, "-") // convert spaces to hyphens
+          .slice(0, 20)
+          .trim();
+        const newId = `${cleanedTitle}__${Date.now()}`;
         const notesRef = doc(db, "users", currentUser.uid, "notes", newId);
         const newDocInfo = await setDoc(notesRef, {
           content: note.content,
